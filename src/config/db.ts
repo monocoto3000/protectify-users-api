@@ -1,8 +1,6 @@
 import { createConnection } from 'mysql2/promise';
 import dotenv from 'dotenv';
 
-// hola
-
 dotenv.config();
 
 const connection = createConnection({
