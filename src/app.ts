@@ -2,6 +2,7 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import userRoutes from './routes/user.routes';
 import roomRoutes from './routes/room.routes';
+import accesskeyRoutes from "./routes/acccesskey.routes"
 import connection from './config/db';
 
 dotenv.config();
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use('/users', userRoutes);
 app.use('/rooms', roomRoutes);
+app.use("/accesskeys", accesskeyRoutes)
 
 const PORT = process.env.PORT || 5000;
 
