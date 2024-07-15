@@ -1,4 +1,4 @@
-export interface Access_keys {
+export interface Member {
     id: number,
     name: string,
     last_name: string,
