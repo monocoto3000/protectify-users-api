@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-const loginService = async (email: string, password: string): Promise<string> => {
+const loginService = async (email: string, password: string): Promise<any> => {
   const user = await getUserByEmailService(email);
   if (!user) {
     throw new Error('Credenciales invalidas');
@@ -15,7 +15,7 @@ const loginService = async (email: string, password: string): Promise<string> =>
     throw new Error('Credenciales invalidas');
   }
   const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET as string, { expiresIn: '24h' });
-  return token;
+  return ({token, user})
 };
 
 export default loginService;

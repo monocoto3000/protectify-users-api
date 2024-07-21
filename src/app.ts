@@ -3,10 +3,18 @@ import * as dotenv from 'dotenv';
 import userRoutes from './routes/user.routes';
 import roomRoutes from './routes/room.routes';
 import connection from './config/db';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 
 app.use('/users', userRoutes);
